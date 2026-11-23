@@ -1,0 +1,23 @@
+{
+  "name": "spilnodoc",
+  "version": "1.0.0",
+  "description": "SpilnoDoc — вебсервіс для спільного редагування документів у реальному часі",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "build": "node client/build.mjs",
+    "dev": "node client/build.mjs --watch",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "dompurify": "^3.2.0",
+    "esbuild": "^0.25.0",
+    "marked": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

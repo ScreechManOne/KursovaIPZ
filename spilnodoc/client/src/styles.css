@@ -1,0 +1,197 @@
+/* ---------- Базові змінні та скидання ---------- */
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --border: #dde1e7;
+  --text: #1f2933;
+  --muted: #6b7785;
+  --accent: #2f5bea;
+  --accent-dark: #2346bd;
+  --accent-soft: #e8eefe;
+  --danger: #c62e2e;
+  --ok: #1f9d55;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 12px rgba(16, 24, 40, 0.06);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+h1, h2, h3 { margin: 0; line-height: 1.25; }
+a { color: var(--accent); }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.splash { display: grid; place-items: center; height: 100vh; color: var(--muted); }
+
+/* ---------- Кнопки та поля ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit; font-size: 14px;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.btn:hover { border-color: #b8c0cc; }
+.btn:disabled { opacity: 0.6; cursor: default; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn-ghost { border-color: transparent; background: transparent; }
+.btn-ghost:hover { background: #eef0f3; border-color: transparent; }
+.btn-danger { color: var(--danger); }
+.btn-danger-fill { background: var(--danger); border-color: var(--danger); }
+.btn-icon { width: 32px; height: 32px; padding: 0; border: none; background: transparent; font-size: 22px; cursor: pointer; color: var(--muted); }
+.btn-block { width: 100%; height: 42px; margin-top: 8px; }
+
+input, select, textarea { font: inherit; color: inherit; }
+input, select {
+  height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: 8px; background: #fff;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; font-size: 14px; }
+.field span { font-weight: 600; }
+.field input.invalid { border-color: var(--danger); }
+.field-error { color: var(--danger); }
+
+.alert { padding: 10px 14px; border-radius: 8px; background: #fdecec; color: #8a1f1f; margin-bottom: 14px; font-size: 14px; }
+.alert-info { background: var(--accent-soft); color: #1d3a99; margin: 0; border-radius: 0; }
+.alert-inline { margin: 0; border-radius: 0; cursor: pointer; }
+.hint { font-size: 13px; color: var(--ok); margin: 6px 0; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.badge-owner { background: #eaf6ee; color: #17733f; }
+.badge-editor { background: var(--accent-soft); color: var(--accent-dark); }
+.badge-viewer { background: #f1f2f4; color: #4b5563; }
+
+.avatar {
+  display: inline-grid; place-items: center; border-radius: 50%; color: #fff;
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+
+/* ---------- Верхня панель ---------- */
+.topbar {
+  display: flex; align-items: center; gap: 16px; height: 56px; padding: 0 20px;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+.logo-mark { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 7px; background: var(--accent); color: #fff; }
+.logo-large { font-size: 24px; }
+.topbar-center { flex: 1; min-width: 0; }
+.topbar-user { display: flex; align-items: center; gap: 10px; }
+.topbar-name { font-size: 14px; }
+
+/* ---------- Сторінки входу та реєстрації ---------- */
+.auth-screen { display: grid; grid-template-columns: 1fr 420px; gap: 48px; max-width: 1040px; margin: 0 auto; padding: 72px 24px; align-items: center; }
+.auth-intro h1 { font-size: 34px; margin: 24px 0 20px; }
+.auth-intro ul { padding-left: 20px; color: var(--muted); line-height: 1.9; }
+.auth-card { background: var(--surface); padding: 32px; border-radius: 14px; box-shadow: var(--shadow); }
+.auth-card h2 { font-size: 20px; margin-bottom: 20px; }
+.auth-switch { text-align: center; font-size: 14px; margin: 18px 0 0; }
+
+/* ---------- Список документів ---------- */
+.page { max-width: 1120px; margin: 0 auto; padding: 32px 24px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 24px; }
+.page-head p { margin: 6px 0 0; }
+.toolbar { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.tabs { display: inline-flex; background: #e9ecf0; padding: 3px; border-radius: 9px; }
+.tab { border: none; background: transparent; padding: 6px 14px; border-radius: 7px; font: inherit; font-size: 14px; cursor: pointer; color: var(--muted); }
+.tab.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); }
+.search { width: 280px; }
+.empty { text-align: center; padding: 64px 0; color: var(--muted); }
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.doc-card {
+  position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s;
+}
+.doc-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+.doc-card h3 { font-size: 17px; margin: 12px 0; word-break: break-word; }
+.doc-card-top { display: flex; justify-content: space-between; align-items: center; }
+.online-dot { color: var(--ok); font-size: 12px; font-weight: 600; }
+.doc-meta { margin: 0; display: grid; gap: 4px; font-size: 13px; }
+.doc-meta div { display: flex; gap: 6px; }
+.doc-meta dt { color: var(--muted); }
+.doc-meta dd { margin: 0; }
+.doc-delete { position: absolute; right: 8px; bottom: 8px; font-size: 13px; height: 28px; opacity: 0; }
+.doc-card:hover .doc-delete { opacity: 1; }
+
+/* ---------- Модальні вікна ---------- */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); display: grid; place-items: center; z-index: 50; padding: 16px; }
+.modal { width: 480px; max-width: 100%; max-height: 90vh; overflow: auto; background: var(--surface); border-radius: 14px; padding: 24px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); }
+.modal-wide { width: 760px; }
+.modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.modal-head h2 { font-size: 18px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.invite-row { display: flex; gap: 8px; margin-bottom: 16px; }
+.invite-row input { flex: 1; min-width: 0; }
+.member-list { list-style: none; padding: 0; margin: 0; }
+.member-list li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--border); }
+.member-info { flex: 1; display: flex; flex-direction: column; font-size: 14px; min-width: 0; }
+
+/* ---------- Редактор ---------- */
+.editor-shell { display: flex; flex-direction: column; height: 100vh; }
+.doc-title-bar { display: flex; align-items: center; gap: 8px; }
+.title-input { flex: 1; max-width: 460px; font-size: 16px; font-weight: 600; border-color: transparent; background: transparent; }
+.title-input:hover:not(:disabled) { border-color: var(--border); }
+.title-input:disabled { color: var(--text); }
+.editor-toolbar {
+  display: flex; align-items: center; gap: 16px; padding: 10px 20px;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.peers { flex: 1; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.peer { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 2px; border: 2px solid; border-radius: 999px; font-size: 13px; }
+.toolbar-actions { display: flex; gap: 8px; }
+
+.editor-body { flex: 1; display: flex; min-height: 0; }
+.editor-input, .editor-preview { flex: 1; min-width: 0; overflow: auto; }
+.editor-input {
+  border: none; resize: none; padding: 32px 40px; background: var(--surface);
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace; font-size: 15px; line-height: 1.7;
+}
+.editor-input:focus { outline: none; }
+.editor-preview { padding: 32px 48px; background: #fbfbfc; border-left: 1px solid var(--border); }
+.mode-edit .editor-preview { display: none; }
+.mode-view .editor-input { display: none; }
+.mode-view .editor-preview { border-left: none; max-width: 860px; margin: 0 auto; background: var(--surface); }
+
+.side-panel { width: 320px; flex-shrink: 0; border-left: 1px solid var(--border); background: var(--surface); padding: 18px; overflow: auto; }
+.side-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.side-head h2 { font-size: 16px; }
+.version-form { display: flex; gap: 6px; }
+.version-form input { flex: 1; min-width: 0; }
+.version-list { list-style: none; padding: 0; margin: 12px 0 0; }
+.version-list li { padding: 10px 0; border-top: 1px solid var(--border); }
+.version-list li.auto .version-title { color: var(--muted); }
+.version-title { font-weight: 600; font-size: 14px; }
+.version-actions { display: flex; gap: 4px; margin-top: 4px; }
+.version-actions .btn { height: 28px; padding: 0 8px; font-size: 13px; }
+
+.statusbar {
+  display: flex; gap: 24px; padding: 6px 20px; font-size: 12px; color: var(--muted);
+  background: var(--surface); border-top: 1px solid var(--border);
+}
+.conn.ok { color: var(--ok); }
+.conn.bad { color: var(--danger); }
+
+/* ---------- Відображення Markdown ---------- */
+.markdown { line-height: 1.7; font-size: 15px; }
+.markdown h1 { font-size: 28px; margin: 0 0 16px; }
+.markdown h2 { font-size: 22px; margin: 24px 0 12px; }
+.markdown h3 { font-size: 18px; margin: 20px 0 10px; }
+.markdown code { background: #eef0f3; padding: 1px 5px; border-radius: 4px; font-size: 90%; }
+.markdown pre { background: #f1f3f5; padding: 12px 16px; border-radius: 8px; overflow: auto; }
+.markdown pre code { background: none; padding: 0; }
+.markdown blockquote { margin: 0; padding-left: 14px; border-left: 3px solid var(--border); color: var(--muted); }
+.markdown table { border-collapse: collapse; }
+.markdown td, .markdown th { border: 1px solid var(--border); padding: 6px 10px; }
+.version-preview { max-height: 60vh; overflow: auto; }
+
+/* ---------- Адаптивність ---------- */
+@media (max-width: 860px) {
+  .auth-screen { grid-template-columns: 1fr; padding: 32px 16px; gap: 24px; }
+  .auth-intro h1 { font-size: 26px; }
+  .toolbar, .page-head { flex-direction: column; align-items: stretch; }
+  .search { width: 100%; }
+  .editor-toolbar { flex-wrap: wrap; }
+  .mode-split .editor-preview { display: none; }
+  .side-panel { position: fixed; right: 0; top: 0; bottom: 0; z-index: 40; width: min(320px, 90vw); }
+  .topbar-name { display: none; }
+}
